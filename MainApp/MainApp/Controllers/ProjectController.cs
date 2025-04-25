@@ -142,5 +142,19 @@ namespace TestOrderMaker.Controllers
             }
             return project_dict;
         }
+
+        [System.Web.Http.HttpGet]
+        [System.Web.Http.Route("api/Project/Get")]
+        public ApiResponse<Project> GetProject(string nameProject)
+        {
+            var filePath = Path.Combine(AppSetting.ProjectFolder, AppSetting.ProjectFileName);
+            List<string[]> project_data_list = IO.ReadData(filePath, "Shift_JIS");
+            var project_dict = initProjectDictionary(project_data_list);
+            if (project_dict.ContainsKey(nameProject))
+            {
+                return new ApiResponse<Project>(project_dict[nameProject]);
+            }
+            return new ApiResponse<Project>(System.Net.HttpStatusCode.NotFound, "Not Found ");
+        }
     }
 }

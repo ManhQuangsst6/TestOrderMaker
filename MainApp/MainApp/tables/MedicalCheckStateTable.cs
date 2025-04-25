@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace TestOrderMaker.Tables
+namespace MainApp.Tables
 {
     class MedicalCheckStateTable : TableBase
     {

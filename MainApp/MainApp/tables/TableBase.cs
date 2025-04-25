@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using TestOrderMaker.Common;
 
-namespace TestOrderMaker.Tables
+namespace MainApp.Tables
 {
     abstract class TableBase
     {
